@@ -41,8 +41,9 @@ jobs:
             mkdir -p /root/app
 
             # 5-2. JAR 파일 복사
-            scp build/libs/*.jar root@${{ secrets.PUBLIC_HOST }}:/root/app/app.jar
+            scp build/libs/*SNAPSHOT.jar ${{ secrets.PUBLIC_USER }}@${{ secrets.PUBLIC_HOST }}:/root/app/app.jar
 
             # 5-3. Public 서버에서 실행 스크립트 호출
             # deploy_private.sh는 Public 서버에서 Private 서버로 배포 처리
+            chmod +x /root/app/deploy_private.sh
             /root/app/deploy_private.sh

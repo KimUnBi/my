@@ -30,7 +30,7 @@ jobs:
         run: ./gradlew clean build -x test
 
       # 5️ Public 서버 배포 (SSH)
-      - name: Deploy to Public Server
+      - name: Deploy to Public Server Check
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.PUBLIC_HOST }}         # Public 서버 IP
